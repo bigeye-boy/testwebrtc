@@ -1,0 +1,56 @@
+.tabs-component {
+  /* margin: 4em 0; */
+}
+/* ul tabs */
+.tabs-component-tabs {
+  @apply flex items-center  text-sm font-medium border-0.5 rounded-md border-#3D58A2;
+}
+
+.tabs-component-tab{
+  @apply flex-1
+}
+/* li tab */
+.tabs-component-tab:not(:last-child) {
+  /* border-bottom: dotted 1px #ddd; */
+}
+
+.tabs-component-tab.is-active {
+  transform: translateY(0);
+  @apply bg-#2A3FAC hover:bg-#203FAC rounded-md
+}
+
+.tabs-component-tab.is-disabled * {
+  color: #cdcdcd;
+  cursor: not-allowed !important;
+}
+
+.tabs-component-tab-a {
+    @apply flex items-center justify-center gap-2  px-3 py-2  hover:shadow whitespace-nowrap;
+}
+
+/* 内容 */
+.tabs-component-panels {
+  /* @apply flex items-center justify-center gap-2 rounded-md px-3 py-2  hover:shadow whitespace-nowrap; */
+  /* @apply flex-1 */
+}
+
+
+.tabs-component-btn {
+  cursor: pointer;
+  background: #e1ecf4;
+  border-radius: 3px;
+  border: 1px solid #7aa7c7;
+  padding: 4px 8px;
+  color: #39739d;
+}
+
+.tabs-component-btn:hover {
+  background-color: #b3d3ea;
+  color: #2c5777;
+}
+
+.tabs-component-btn:active {
+  background-color: #a0c7e4;
+  box-shadow: none;
+  color: #2c5777;
+}

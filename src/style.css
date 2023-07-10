@@ -1,0 +1,44 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+html{
+  font-size: 12px;
+}
+
+#app {
+  padding: 0rem;
+}
+
+@font-face {
+  font-family: Stratum;
+  src: url(./assets/font/stratum2-medium-webfont.ttf);
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Stratum;
+  src: url(./assets/font/Stratum2-Black.otf);
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Stratum;
+  src: url(./assets/font/Stratum2-Black.otf);
+  font-weight: 600;
+}
+@font-face {
+  font-family: Stratum;
+  src: url(./assets/font/Stratum2-Black.otf);
+  font-weight: 700;
+}
+* {
+  /* font-family: Stratum, Georgia, serif; */
+}
