@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="p-6">
+        身份：
+        <select v-model="initiator" class="border p-2 border-#000">
+            <option :value="true"> 发起人</option>
+             <option :value="false"> 接收人</option>
+        </select>
+    </div>
+    <div class="space-x-6">
+        <button onclick="connect" class="p-4 bg-blue">Connect Socket</button>
+        <!-- <button @click="disconnect()" class="p-4 bg-blue ml-4">Disconnect</button> -->
+        <button @click="connectSdp()" class="p-4 bg-blue">连接远程 SDP</button>
+        <button @click="sendOffer()" class="p-4 bg-blue">发送对方Offer</button>
+        <button @click="sendLocalOffer()" class="p-4 bg-blue" v-if="initiator">发送自己 Offer</button>
+        <button @click="openCam()" class="p-4 bg-blue">Open Camera</button>
+        <button @click="connectMockSdp()" class="p-4 bg-blue">模拟连接SDP</button>
+
+    </div>
+
+    <div>
+        <textarea class="border-2 border-#000 w-500px h-200px" v-model="incoming"></textarea>
+        <button class="p-4 bg-blue" @click="submit">submit</button>
+        <pre id="outgoing" class="border-2 border-#000">{{ outgoing }}</pre>
+        <div class="flex space-x-6">
+            <video src="" id="localVideo" class="w-500px"></video>
+            <video id="remoteVideo" class="w-500px"></video>
+        </div>
+
+    </div>
+</body>
+</html>
+<script>
+    function connect() {
+        
+    }
+</script>

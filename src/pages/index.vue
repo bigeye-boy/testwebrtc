@@ -15,11 +15,13 @@ window.addEventListener('onmessageWS', (e) => {
         let iceobj = JSON.parse(e.detail.data)
         if (iceobj.type == 'config') {
             iceConfig.value = iceobj.peerConnectionOptions
-            console.log('The account password:',iceobj.peerConnectionOptions);
+            console.log('The account password:',JSON.stringify(iceobj.peerConnectionOptions) );
+            // connectSdp()
         }
         if (iceobj.type == 'offer') {
             iceOffer.value = iceobj
-            console.log('offer: ',iceobj);
+            console.log('offer: ', JSON.stringify(iceobj));
+            // sendOffer()
         }
         if (iceobj.type == 'iceCandidate') {
             iceCandidate = iceobj
@@ -37,10 +39,11 @@ let p = null
 let streams = null
 const initiator = ref(false)
 const initPeer = (config) => {
-    console.log('init peer config:',iceConfig.value);
+    console.log('init peer config:',JSON.stringify(iceConfig.value));
     p = new SimplePeer({
         initiator: initiator.value,
-        trickle: false,
+        trickle: true,
+        // allowHalfTrickle:true,
         // stream: (initiator.value && streams)?true:false,
         // streams:streams?[streams]:undefined,
         config: config
@@ -52,12 +55,13 @@ const initPeer = (config) => {
         outgoing.value = JSON.stringify(data)
         if (data.type == 'candidate') {
             data.type = 'iceCandidate'
+            // delete data.type
             sendWSPush(data)
-            console.log('send Socket:',data);
+            console.log('send Socket:',JSON.stringify(data));
         }
         else if(data.type == 'answer') {
             sendWSPush(data)
-            console.log('send Socket:',data);
+            console.log('send Socket:',JSON.stringify(data));
         }
         // else if(data.type == 'transceiverRequest'){
         //     sendWSPush(data)
@@ -78,7 +82,7 @@ const initPeer = (config) => {
     })
 
     p.on('data', data => {
-        console.log('on data: ' + data)
+        console.log('on data: ' + JSON.stringify(data))
     })
 
     p.on('track', (track, stream) => {
@@ -139,7 +143,7 @@ const connectMockSdp = () => {
 }
 
 const sendOffer = () => {
-    console.log('send remote Offer signal: ',iceOffer.value);
+    console.log('send remote Offer signal: ',JSON.stringify(iceOffer.value));
     p.signal(iceOffer.value)
 }
 
@@ -159,7 +163,6 @@ const sendLocalOffer = () => {
     </div>
     <div class="space-x-6">
         <button @click="connect()" class="p-4 bg-blue">Connect Socket</button>
-        <!-- <button @click="disconnect()" class="p-4 bg-blue ml-4">Disconnect</button> -->
         <button @click="connectSdp()" class="p-4 bg-blue">连接远程 SDP</button>
         <button @click="sendOffer()" class="p-4 bg-blue">发送对方Offer</button>
         <button @click="sendLocalOffer()" class="p-4 bg-blue" v-if="initiator">发送自己 Offer</button>
