@@ -25,12 +25,15 @@ const px2remOptions = {
 }
 
 export default defineConfig({
-  base: "/",
+  base: "./",
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
       '@/': `${path.resolve(__dirname, 'src')}/`,
     },
+  },
+  build: {
+    outDir:'doc'
   },
   plugins: [
     vue(),
