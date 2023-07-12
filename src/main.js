@@ -4,8 +4,6 @@ import router from './router'
 import { createPinia } from 'pinia'
 import { Tabs, Tab } from 'vue3-tabs-component';
 //default styles
-
-import './utils/rem'
 import './style.css'
 import './style/tabs-component.css'
 import App from './App.vue'

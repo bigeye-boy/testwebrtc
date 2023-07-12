@@ -68,7 +68,7 @@ export const socketLogin = ()=>{
  */
 const onopenWS = (e) => {
   const uid = sessionStorage.getItem("uid");
-  sendPingPong(10000, uid);
+  sendPingPong(8000, uid);
 }
 
 /**
@@ -108,7 +108,7 @@ const connecting = message => {
     } else {
       Socket.send(JSON.stringify(message))
     }
-  }, 1000)
+  }, 5000)
 }
 
 /**
@@ -149,16 +149,11 @@ export const sendPingPong = (ntime = 10000, from) => {
   const time = new Date().getTime();
   const uuid = getuuid();
    let data = {
-        "typeu": 3,
-        "from": from,
-        "to": "0",
-        "fp": uuid,
-        "stime": time,
-        "qos": false, 
+        type:'ping'
       }
     setIntervalHeartBeat = setInterval(() => {
       if(Socket.readyState === 1) {
-          // Socket.send(JSON.stringify(data))
+          Socket.send(JSON.stringify(data))
       }
     }, ntime)
 
