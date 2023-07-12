@@ -25,7 +25,7 @@ const px2remOptions = {
 }
 
 export default defineConfig({
-  base: "./",
+  base: "/testwebrtc/",
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
