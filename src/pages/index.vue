@@ -2,7 +2,7 @@
 import { createSocket, sendWSPush, socketLogin } from '@/utils/websocket';
 import { onMounted, ref,toRaw } from 'vue';
 const connect = () => {
-    createSocket('wss://safana-neom-hcso.api.emotechlab.com/nc1render9/');
+    createSocket('wss://safana-neom-hcso.api.emotechlab.com/nc1render10/');
 }
 const RTCConfig = ref('')
 const iceOffer = ref({})
@@ -159,7 +159,7 @@ const reset = () => {
         </div> -->
         <!-- <button class="p-4 bg-blue" @click="submit">submit</button> -->
         </div>
-        <div class="flex md:flex-row flex-col">
+        <div class="flex md:flex-row flex-col md:w-xl">
             <video src="" id="localVideo" class="w-full flex-1 mt-4" autoplay controls></video>
             <video id="remoteVideo" src="" class="w-full flex-1  mt-4" autoplay controls></video>
         </div>
