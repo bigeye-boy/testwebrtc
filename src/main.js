@@ -23,6 +23,7 @@ import '@unocss/reset/tailwind.css'
 //   },
 // )
 
+new window.VConsole();
 const app = createApp(App);
 app.use(router);
 app.use(createPinia())
