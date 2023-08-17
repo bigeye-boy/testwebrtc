@@ -145,6 +145,7 @@ const reset = () => {
         <div class="text-lg text-lightBlue">{{ Status }}</div>
         <!-- <button @click="connectSdp()" class="p-4 bg-blue">连接远程 SDP</button> -->
         <!-- <button @click="sendOffer()" class="p-4 bg-blue">发送对方Offer</button> -->
+        <router-link to="/pdf">pdf</router-link>
         </div>
 
     <div >
